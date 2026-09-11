@@ -31,34 +31,8 @@ JVM is a part of JRE and it is responsible for loading and running java class fi
 
 ### Basic Architecture Diagram
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                        JVM Architecture                         │
-│                                                                 │
-│  .class file ──────────────► Class Loader System               │
-│                                      │                         │
-│              ◄───────────────────────┘                         │
-│              ▼                                                  │
-│  ┌─────────────────────────────────────────────────────────┐   │
-│  │              Various Memory Areas of JVM                │   │
-│  │                                                         │   │
-│  │  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐  │   │
-│  │  │  Method  │ │   Heap   │ │  Stack   │ │    PC    │  │   │
-│  │  │   Area   │ │   Area   │ │   Area   │ │ Register │  │   │
-│  │  └──────────┘ └──────────┘ └──────────┘ └──────────┘  │   │
-│  │                                   ┌────────────────┐   │   │
-│  │                                   │ Native Method  │   │   │
-│  │                                   │     Stack      │   │   │
-│  │                                   └────────────────┘   │   │
-│  └─────────────────────────────────────────────────────────┘   │
-│              │                                                  │
-│              ▼                                                  │
-│  ┌───────────────────┐    ┌───────────────┐   ┌─────────────┐  │
-│  │  Execution Engine │◄──►│  Java Native  │◄──│   Native    │  │
-│  │                   │    │Interface (JNI)│   │Method Libs  │  │
-│  └───────────────────┘    └───────────────┘   └─────────────┘  │
-└─────────────────────────────────────────────────────────────────┘
-```
+<img width="541" height="341" alt="JVM Architecture diagram" src="https://github.com/user-attachments/assets/159be77e-c5be-4159-b978-f4e3395af966" />
+
 
 ---
 
@@ -72,21 +46,8 @@ ClassLoader Sub System is responsible for the following 3 activities:
 
 ### ClassLoader Flow Diagram
 
-```
-                    ┌─────────┐
-                    │  Verify │
-                    └────┬────┘
-                         │
-┌─────────┐              ▼          ┌────────────────┐
-│ Loading │──────►  ┌─────────┐ ───►│ Initialization │
-└─────────┘         │ Prepare │     └────────────────┘
-                    └────┬────┘
-                         │
-                    ┌────▼────┐
-                    │ Resolve │
-                    └─────────┘
-                    └──── Linking ────┘
-```
+<img width="503" height="329" alt="classloader" src="https://github.com/user-attachments/assets/c99dc126-1890-4d2e-b451-d335d5e5b112" />
+
 
 ### Loading
 
